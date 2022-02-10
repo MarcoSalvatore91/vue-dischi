@@ -2,10 +2,10 @@
   <section>
       <div class="container row">
         <div class="card-song text-center" v-for="song in songs" :key="song.response">
-            <img :src="song.poster" :alt="song.author">
-            <h4 class="white">{{ song.title }}</h4>
-            <div class="white">{{ song.author }}</div>
-            <div class="white">{{ song.year }}</div>
+            <Card :poster="song.poster"
+            :author="song.author"
+            :title="song.title"
+            :year="song.year" />
         </div>
       </div>
   </section>
@@ -13,9 +13,13 @@
 
 <script>
 import axios from 'axios';
+import Card from './Card.vue'
 
 export default {
     name: "Main",
+    components: {
+        Card,
+    },
 
     data() {
         return {
@@ -44,14 +48,6 @@ section {
         padding: 10px 10px 20px 10px;
         background-color: $bgc_grey;
         margin: 10px 20px;
-
-        img {
-            width: 120px;
-        }
-
-        h4 {
-            margin-top: 10px;
-        }
     }
 
 }

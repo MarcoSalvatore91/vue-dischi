@@ -1,9 +1,9 @@
 <template>
   <div>
     <img :src="poster" :alt="author">
-    <h4 class="white">{{ title }}</h4>
-    <div class="white">{{ author }}</div>
-    <div class="white">{{ year }}</div>
+    <h4>{{ title }}</h4>
+    <div class="grey">{{ author }}</div>
+    <div class="grey">{{ year }}</div>
   </div>
 </template>
 
@@ -24,6 +24,11 @@ export default {
 
     h4 {
         margin-top: 10px;
+        color: white;
+    }
+
+    .grey {
+      color: $color_grey;
     }
 
 </style>

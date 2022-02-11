@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Card from './Card.vue'
 import Loaders from './Loaders.vue'
 
@@ -25,27 +24,7 @@ export default {
         Card,
         Loaders,
     },
-
-    data() {
-        return {
-            isLoading: false,
-            songs: [],
-        }
-    },
-
-    methods: {
-        getSong() {
-            this.isLoading = true,
-            axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
-                this.songs = res.data.response;
-                this.isLoading = false;
-            });
-        },        
-    },
-
-    mounted() {
-        this.getSong();
-    }
+    props: ['songs'],
 };
 
 </script>

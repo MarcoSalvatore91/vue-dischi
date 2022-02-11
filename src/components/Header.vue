@@ -2,16 +2,22 @@
   <header>
     <div class="head">
       <img src="../assets/img/unnamed.png" alt="Logo">
+      <Select />
     </div>
   </header>
 </template>
 
 <script>
+import Select from './Select.vue'
+
 export default {
   name: "Header",
   props: {
     
   },
+  components: {
+    Select,
+  }
 };
 </script>
 

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <Header />
-    <Main :songs="songs" />
+    <Header :songs="songs" />
+    <Loaders v-if="isLoading"/>
+    <Main v-else :songs="songs" />
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import axios from 'axios';
 import Header from './components/Header.vue';
 import Main from './components/Main.vue'
+import Loaders from './components/Loaders.vue'
 
 
 export default {
@@ -16,6 +18,8 @@ export default {
   components: {
     Header,
     Main,
+    Loaders,
+
   },
 
   data() {

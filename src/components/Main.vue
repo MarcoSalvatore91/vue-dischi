@@ -1,8 +1,7 @@
 <template>
   <section>
     <div>
-        <Loaders v-if="isLoading"/>
-        <div v-else class="container row">
+        <div class="container row">
             <div class="card-song text-center" v-for="song in songs" :key="song.response">
                 <Card :poster="song.poster"
                 :author="song.author"
@@ -16,13 +15,11 @@
 
 <script>
 import Card from './Card.vue'
-import Loaders from './Loaders.vue'
 
 export default {
     name: "Main",
     components: {
         Card,
-        Loaders,
     },
     props: ['songs'],
 };

@@ -2,7 +2,7 @@
   <section>
     <div>
         <div class="container row">
-            <div class="card-song text-center" v-for="song in songs" :key="song.response">
+            <div class="card-song text-center" v-for="song in filtredAlbums" :key="song.response">
                 <Card :poster="song.poster"
                 :author="song.author"
                 :title="song.title"
@@ -21,7 +21,20 @@ export default {
     components: {
         Card,
     },
-    props: ['songs'],
+
+    props: ['songs', 'newArr'],
+
+    computed: {
+        filtredAlbums() {
+            const filtredAlbum = this.newArr;
+            return this.songs.filter((song) => {
+                if(filtredAlbum === song.genre || filtredAlbum === 'All' || filtredAlbum === '') {
+                    return true
+                }
+            })
+        }
+        
+    },
 };
 
 </script>

@@ -2,7 +2,7 @@
   <div>
     <Header :songs="songs" @search="filtredSong"/>
     <Loaders v-if="isLoading"/>
-    <Main v-else :songs="songs" />
+    <Main v-else :songs="songs" :newArr="newArr"/>
   </div>
 </template>
 

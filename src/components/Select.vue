@@ -1,6 +1,7 @@
 <template>
   <div class="me-3">
       <select @change="$emit('search', song)" v-model='song'>
+          <option value="All">All</option>
           <option v-for='(song, index) in singleGenre' :key="index" :value="song"
           >{{ song }}</option>
       </select>

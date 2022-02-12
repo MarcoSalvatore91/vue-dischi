@@ -2,7 +2,7 @@
   <header>
     <div class="head d-flex justify-content-between">
       <img src="../assets/img/unnamed.png" alt="Logo" />
-      <Select @search="searchSong" />
+      <Select @search="searchSong" :songs="songs"/>
     </div>
   </header>
 </template>
@@ -17,11 +17,12 @@ export default {
     Select,
   },
 
-  metodhs: {
-    searchSong() {
-      console.log("cliccato");
-    },
+  methods: {
+    searchSong(item) {
+      this.$emit("search", item)
+    }
   },
+
 };
 </script>
 

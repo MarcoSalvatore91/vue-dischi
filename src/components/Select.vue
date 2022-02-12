@@ -1,21 +1,28 @@
 <template>
   <div class="me-3">
-      <select>
-          <option v-for='option in options' :key="option"
-          @click="$emit('search')"
-          >{{ option }}</option>
+      <select @change="$emit('search', songs)">
+          <option value="default">--</option>
+          <option v-for='(song, index) in singleGenre' :key="index"
+          >{{ song }}</option>
       </select>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'Select',
+    name: "Select",
+    props: ["songs"],
 
-    data() {
-        return {
-            options: ['--', 'Rock', 'Pop', 'Jazz', 'Metal'],
-        }        
+    computed: {
+        singleGenre() {
+            const genres = []; 
+                this.songs.forEach((type) => {
+                    if(!genres.includes(type.genre)) {
+                        genres.push(type.genre)
+                    }
+            })
+            return genres     
+        }
     }
 }
 </script>

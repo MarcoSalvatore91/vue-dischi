@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :songs="songs" />
+    <Header :songs="songs" @search="filtredSong"/>
     <Loaders v-if="isLoading"/>
     <Main v-else :songs="songs" />
   </div>
@@ -26,17 +26,30 @@ export default {
       return {
           songs: [],
           isLoading: false,
+          newArr: [],
       }
     },
 
+    computed: {
+    selectSong() {
+      return this.songs.filter((song) => song.genre.includes(this.newArr) 
+      )},
+    },
+
     methods: {
+      
         getSong() {
             this.isLoading = true,
             axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
                 this.songs = res.data.response;
                 this.isLoading = false;
             });
-        },        
+        }, 
+
+        filtredSong(item) {
+          this.newArr.push(item)
+        }
+      
     },
 
     mounted() {

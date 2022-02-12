@@ -1,8 +1,7 @@
 <template>
   <div class="me-3">
-      <select @change="$emit('search', songs)">
-          <option value="default">--</option>
-          <option v-for='(song, index) in singleGenre' :key="index"
+      <select @change="$emit('search', song)" v-model='song'>
+          <option v-for='(song, index) in singleGenre' :key="index" :value="song"
           >{{ song }}</option>
       </select>
   </div>
@@ -23,7 +22,7 @@ export default {
             })
             return genres     
         }
-    }
+    },
 }
 </script>
 

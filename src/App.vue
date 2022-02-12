@@ -26,14 +26,8 @@ export default {
       return {
           songs: [],
           isLoading: false,
-          newArr: [],
+          newArr: '',
       }
-    },
-
-    computed: {
-    selectSong() {
-      return this.songs.filter((song) => song.genre.includes(this.newArr) 
-      )},
     },
 
     methods: {
@@ -47,7 +41,7 @@ export default {
         }, 
 
         filtredSong(item) {
-          this.newArr.push(item)
+          this.newArr = item;
         }
       
     },

@@ -21,7 +21,7 @@ export default {
     components: {
         Card,
     },
-    props: ['songs', 'newArr'],
+    props: ['songs'],
 };
 
 </script>
